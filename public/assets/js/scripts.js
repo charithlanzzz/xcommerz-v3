@@ -334,7 +334,11 @@ $( document ).ready(function() {
         setupForm($('#request-form'));
         setupForm($('#audit-form'));
         setupForm($('#demo-form'));
-        setupForm($('#pricing-form'));       
+        setupForm($('#pricing-form-Basic')); 
+        setupForm($('#pricing-form-Standard'));
+        setupForm($('#pricing-form-Advanced'));
+        setupForm($('#pricing-form-Premium'));
+        setupForm($('#start-form'));       
     
         // Add more forms if needed
     });

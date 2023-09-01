@@ -1,5 +1,5 @@
 {
-  "name": "xcommerz",  
+  "name": "xcommerz",
   "version": "0.1.0",
   "homepage": "https://xcommerz.com/",
   "private": true,
@@ -10,7 +10,7 @@
     "axios": "^1.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1",
     "react-waypoint": "^10.3.0"
   },

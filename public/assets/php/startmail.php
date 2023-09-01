@@ -8,11 +8,10 @@
         $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
         $countrycode = trim($_POST["countrycode"]);
         $phone = trim($_POST["phone"]);
-        $package = trim($_POST["package"]);
         $message = trim($_POST["message"]);
 
         // Check that data was sent to the mailer.
-        if ( empty($name) OR empty($email) OR empty($countrycode) OR empty($phone) OR empty($package) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if ( empty($name) OR empty($email) OR empty($countrycode) OR empty($phone) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             // Set a 400 (bad request) response code and exit.
             http_response_code(400);
             echo "Please complete the form and try again.";
@@ -20,13 +19,12 @@
         }
 
         // Set the email subject.
-        $subject = "xCommerz - Request a Quote - ".date("Y-m-d H:i:s");
+        $subject = "xCommerz - Request a Demo - ".date("Y-m-d H:i:s");
 
         // Build the email content.
         $email_content = "Name: $name\n";
         $email_content .= "Email: $email\n";
-        $email_content .= "Phone: $countrycode.$phone\n";
-        $email_content .= "Package: $package\n";
+        $email_content .= "Phone: $countrycode $phone\n";
         $email_content .= "Message:$message\n";
 
         // Build the email headers.

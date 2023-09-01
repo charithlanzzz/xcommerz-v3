@@ -1,52 +1,47 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from "react";
 
-const initData = {
-  "heading": "Stay Tuned",
-  "headingText": "Your inquiries are valuable. Contact us, and we'll promptly get back to you.",
-  "headingTextTwo": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati."
-}
+function ModalStart(props) {
+  const { show, closeModal } = props;
+  const displayBlock = {
+    display:"block"
+  };
+  const displayNone = {
+    display:"none"
+  };
 
-class contactSection extends Component {
-    state = {
-        data: {}
-    }
-    componentDidMount(){
-        this.setState({
-            data: initData
-        })
-    }
-    render() {
-        return (
-            <section id="contact" className="contact-area bg-gray ptb_100">
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-12 col-md-10 col-lg-6">
-                            {/* Section Heading */}
-                            <div className="section-heading text-center">
-                                <h2 className="text-capitalize">{this.state.data.heading}</h2>
-                                <p className="d-none d-sm-block mt-4">{this.state.data.headingText}</p>
-                                <p className="d-block d-sm-none mt-4">{this.state.data.headingTextTwo}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-12">
-                            {/* Contact Box */}
+   
+  return (
+    <>
+       
+       <div className="quote-form-pop anim">
+                <div id="demoModal" className="modal" style={show?displayBlock:displayNone}>
+                    {/* <!-- Modal content --> */}
+                    <div className="modal-content d-flex align-items-center text-center">
+                        <div className="outer-container">
+                            <span className="close" onClick={closeModal}>&times;</span>
+                            <div className="request-text"><strong>Request a Demo</strong></div>
                             <div className="contact-box text-center">
                             {/* Contact Form */}
-                            <form id="contact-form" className='custom-form' method="POST" action="assets/php/mail.php">
+                            <form id="start-form" className="custom-form" method="POST" action="assets/php/startmail.php">
                                 <div className="row">
-                                    <div className="col-12 col-md-6">
-                                        <div className="form-group">
+                                    <div className="col">
+                                        <div className="form-group row">
+                                        <label for="inputName" className="col-sm-4 col-form-label">Your Name<sup>*</sup></label>
+                                        <div className="col-sm-8">
                                         <input type="text" className="form-control" name="name" placeholder="Name" required="required" />
                                         </div>
-                                        <div className="form-group">
+                                        </div>
+                                        <div className="form-group row">
+                                        <label for="inputEmail" className="col-sm-4 col-form-label">Your Email Address<sup>*</sup></label>
+                                        <div className="col-sm-8">
                                         <input type="email" className="form-control" name="email" placeholder="Email" required="required" />
                                         </div>
-                                        <div className="form-group">
+                                        </div>
+                                        <div className="form-group row">
+                                        <label for="inputPhone" className="col-sm-4 col-form-label">Phone Number<sup>*</sup></label>
+                                        <div className="col-sm-8">
                                         <div className="d-flex">
-                                          <select name="countrycode" className="form-control contact-h w-50">
+                                          <select name="countrycode" className="form-control w-50">
                                           <option value="" selected disabled>Country Code</option>
                                           <option dataCountryCode="GB" value="+44">UK (+44)</option>
                                           <option dataCountryCode="US" value="+1">USA (+1)</option>
@@ -270,28 +265,29 @@ class contactSection extends Component {
                                           <input type="text" className="form-control" name="phone" placeholder="Phone" required="required"/>
                                         </div>
                                         </div>
-                                    </div>
-                                    <div className="col-12 col-md-6">
-                                        <div className="form-group">
+                                        </div>                                        
+                                        <div className="form-group row">                                        
+                                        <label for="inputRequ" className="col-sm-4 col-form-label">Your Message <sup>*</sup></label>
+                                        <div className="col-sm-8">
                                         <textarea className="form-control" name="message" placeholder="Message" required="required" defaultValue={""} />
                                         </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <button className="btn btn-bordered mt-3 mt-sm-4" type="submit">Send Message</button>
+                                        </div>
+                                    </div>                                    
+                                    <div className="col-12 text-right">
+                                        <button className="btn btn-bordered mt-3 mt-sm-4" type="submit">Submit</button>
                                     </div>
                                 </div>
-                                
                                 <p className="form-message py-5" />
-                            
                             </form>
-                           
+                            
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        );
-    }
+            </div>
+    </>
+  );
+  
 }
 
-export default contactSection;
+export default ModalStart;

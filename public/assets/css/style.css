@@ -954,7 +954,7 @@ a,
 #scrollUp {
     position: fixed;
     right: 1%;
-    bottom: 3%;
+    bottom: 10%;
     height: 40px;
     width: 40px;
     border-radius: 3px;
@@ -2233,7 +2233,7 @@ a,
 }
 
 .contact-box .form-group textarea {
-    height: 200px;
+    height: 180px;
     padding: 15px;
 }
 
@@ -3411,4 +3411,8 @@ form p{
     background: rgba(0, 0, 0, 0) linear-gradient(to right, #00e4e2 0%, #81ee8e 100%) repeat scroll 0 0;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.contact-h{
+    box-shadow: none;
+    border-right: 1px solid #cfcfcf40;
 }

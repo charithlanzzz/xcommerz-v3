@@ -331,16 +331,17 @@ class pricingOne extends Component {
                         ))}
                     </ul>
                     <div className="plan-select">
-                      <button
+                    <button
                         onClick={() => this.openModal(item.planTitle)}
                         className="btn btn-bordered text-uppercase"
                       >
                         <span>{item.btnText}</span>
                       </button>
-
                       <ModalPricing
                         closeModal={this.closeModal}
                         show={this.state.showModal}
+                        selectedPlanTitle={this.state.selectedPlanTitle} // Pass selectedPlanTitle as prop
+                        setSelectedPlanTitle={this.setSelectedPlanTitle} // Pass setSelectedPlanTitle as prop
                       />
                     </div>
                   </div>

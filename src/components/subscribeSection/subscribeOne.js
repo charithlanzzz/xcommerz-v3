@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import ModalDemo from '../popup/modalDemo';
+import ModalStart from '../popup/modalStart';
 
 const SubscribeOne = () => {
     const [showModal, setShowModal] = useState(false);
 
     const initData = {
-        heading: "Launch Your Online Store in 20 Days",
+        heading: "Launch Your Online Store in 14 Days",
         content: "No Credit card required",
         btnText: "Get Started"
     };
@@ -35,7 +35,7 @@ const SubscribeOne = () => {
                     </div>
                 </div>
             </div>
-            <ModalDemo closeModal={closeModal} show={showModal} />
+            <ModalStart closeModal={closeModal} show={showModal} />
         </section>
     );
 };

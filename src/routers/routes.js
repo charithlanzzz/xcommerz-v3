@@ -12,7 +12,7 @@ class MyRouts extends React.Component {
         <Router>
           <Switch>
             <Route exact path="/" component={ThemeOne} /> 
-            <Route path="/blogSection/:id" component={BlogDetails} /> {/* Dynamic route */}           
+            <Route path="/blogSection/:slug" component={BlogDetails} />         
           </Switch>
         </Router>
       </div>

@@ -8,6 +8,7 @@ import FooterSection from '../footerSection/footer';
 const initData = [
     {
     "id": 1,
+    "slug": "the-farmers-dog-marketing-strategy",
     "title": "The Farmer's Dog Marketing Strategy",
     "image": "/img/stories/farmers-dog-marketing-strategy.webp",    
     "text_1": "The Farmer’s Dog is a direct-to-consumer brand that has made a immense change in the dog food industry. They needed to make overturn on marketing of the, burnt brown balls, which were highly-processed as natural products, so they started creating a different type of dog food in their own category. The transactions on the eCom site, which has the aim of sending dog food directly to customers. The online store consists of different varieties of food & also contains a survey that helps the users decide what type of food and what portion size they should feed their dogs.",
@@ -16,6 +17,7 @@ const initData = [
     },
     {
     "id": 2,
+    "slug": "casper-disrupted-the-mattress-industry",
     "title": "Casper Disrupted the Mattress Industry",
     "image": "/img/stories/casper.webp",    
     "text_1": "Casper launched its eCommerce platform in 2014 & disrupted the mattress industry with a $1.1 billion valuation.",
@@ -24,6 +26,7 @@ const initData = [
     },
     {
     "id": 3,
+    "slug": "urban-outfitters-rewards-program",
     "title": "Urban Outfitters Rewards Program",
     "image": "/img/stories/urban-outfitters.webp",    
     "text_1": "Urban Outfitters grew from a small Pennsylvania physical shop to a global retail giant in a span of 50 years. They’re fantastic at keeping in touch with Millennial and Gen Z culture, and their message always connects with their audience mainly online.",
@@ -33,61 +36,60 @@ const initData = [
 ]
 
 
-class blogDetails extends Component {
+class BlogDetails extends Component {
     state = {
-        data: {}        
-    }
+      data: {}
+    };
+  
     componentDidMount() {
-        const { match } = this.props;
-        const id = parseInt(match.params.id); // Extract id from URL parameter
-
-        const blogData = initData.find(item => item.id === id);
-
-        if (blogData) {
-            this.setState({
-                data: blogData,
-            });
-        }
+      const { match } = this.props;
+      const slug = match.params.slug;
+  
+      const blogData = initData.find(item => item.slug === slug);
+  
+      if (blogData) {
+        this.setState({
+          data: blogData,
+        });
+      }
     }
+  
     render() {
-        return (
-            <div className="blog">
-                <ScrollupSection />
-                <div className="all-area">
-                    {/* <Header imageData={"/img/logo-white.png"} /> */}
-                    <BreadcrumbSection heading={this.state.data.title} home={"Home"} page={"Blog"} title={"Blog Details"} />
-                    <section id="blog" className="section blog-area ptb_100">
-                        <div className="container">
-                            <div className="row">  
-                            <div className='col-12 col-lg-6'>
-                                 {/* Blog Thumb */}
-                                 <div className="blog-thumb">
-                                            <img src={this.state.data.image} alt="" />
-                                        </div>
-                                </div>                             
-                                <div className="col-12 col-lg-6">
-                                    {/* Single Blog Details */}
-                                    <article className="single-blog-details">                                       
-                                        {/* Blog Content */}
-                                        <div className="blog-content appo-blog">                                           
-                                            {/* Blog Details */}
-                                            <div className="blog-details">
-                                                <h3 className="blog-title py-2 py-sm-3"><a href="#">{this.state.data.title}</a></h3>
-                                                <p className="d-block mb-2">{this.state.data.text_1}</p>
-                                                <p className="d-block mb-2">{this.state.data.text_2}</p>                                                
-                                                <p className="d-block">{this.state.data.text_3}</p>                                                
-                                            </div>
-                                        </div>                                        
-                                    </article>
-                                </div>
-                            </div>
+      const { data } = this.state;
+  
+      return (
+        <div className="blog">
+          <ScrollupSection />
+          <div className="all-area">
+            <BreadcrumbSection heading={data.title} home={"Home"} page={"Case Studies"} title={data.title} />
+            <section id="blog" className="section blog-area ptb_100">
+              <div className="container">
+                <div className="row">
+                  <div className="col-12 col-lg-6">
+                    <div className="blog-thumb">
+                      <img src={data.image} alt="" />
+                    </div>
+                  </div>
+                  <div className="col-12 col-lg-6">
+                    <article className="single-blog-details">
+                      <div className="blog-content appo-blog">
+                        <div className="blog-details">
+                          <h3 className="blog-title py-2 py-sm-3">{data.title}</h3>
+                          <p className="d-block mb-2">{data.text_1}</p>
+                          <p className="d-block mb-2">{data.text_2}</p>
+                          <p className="d-block">{data.text_3}</p>
                         </div>
-                    </section>
-                    <FooterSection />
+                      </div>
+                    </article>
+                  </div>
                 </div>
-            </div>
-        );
+              </div>
+            </section>
+            <FooterSection />
+          </div>
+        </div>
+      );
     }
-}
-
-export default blogDetails;
+  }
+  
+  export default BlogDetails;
